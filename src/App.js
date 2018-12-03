@@ -4,6 +4,8 @@ import './App.css';
 import Header from './component/Header';
 import Content from './component/Content';
 import Clock from './component/Clock';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import PersonList from './component/PersonList';
 
 class App extends Component {
   render() {
@@ -34,13 +36,24 @@ class App extends Component {
       }
     ]
     return (
-      <div className="App">
-        <Header title="Inner Thoughts" />
-        <Content activities={activi} />
-        <Clock />
-      </div>
+      <Router>
+        <div className="App">
+          <Header title="Inner Thoughts" />
+          <Content activities={activi} />
+          <Clock />
+          <Link to="/tree">Show me API Data</Link>
+          <Route path="/tree" component={Tre} />
+        </div>
+      </Router>
     );
   }
+}
+function Tre() {
+  return (
+    <React.Fragment>
+      <PersonList />
+    </React.Fragment>
+  );
 }
 
 export default App;

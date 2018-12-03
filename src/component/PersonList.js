@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import Header from './Header';
 
 export default class PersonList extends React.Component {
     state = {
@@ -7,19 +8,52 @@ export default class PersonList extends React.Component {
     }
 
     componentDidMount() {
-        let req = `http://dev.kejar.id/un/fe/sudahlatihanto/1/888888`;
-        // axios.defaults.headers.common['Authorization'] = 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3NlbmV1LmtlamFyLmlkL3VuL3Npc3dhL2xvZ2luIiwiaWF0IjoxNTQzNDU4MTQ5LCJuYmYiOjE1NDM0NTgxNDksImp0aSI6InFsVlJqVDdVUmoxRWhkcjYiLCJzdWIiOiI4ODg4ODgiLCJwcnYiOiIyYjBkZTQ3M2YwOGE4NTU3MjBlNGI0YjMxMDhmMTFmNWI2NjVjMGUwIn0.qgdJdz2gSWXzd_AG73uuuX3l4o_2cNQ75C7guAc14KY';
+        const req = 'http://dev.kejar.id/un/fe/sudahlatihanto/1/888888';
+        var token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vZGV2LmtlamFyLmlkL3VuL3Npc3dhL2xvZ2luIiwiaWF0IjoxNTQzNTY1MTc0LCJuYmYiOjE1NDM1NjUxNzQsImp0aSI6IjZ0YXBNNHg3WXZabTgxQmkiLCJzdWIiOiI4ODg4ODgiLCJwcnYiOiIyYjBkZTQ3M2YwOGE4NTU3MjBlNGI0YjMxMDhmMTFmNWI2NjVjMGUwIn0.0_CV3byQ4XV-CV_RnCBi5L3646B-MzYXieJFYRWlyzk"
+        axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+        axios.get(req, {
+            headers:
+            {
+                'Authorization': `Bearer ${token}`,
+                'Accept': 'application/json',
+                // 'Access-Control-Allow-Origin': '*'
+            },
+            // withCredentials: true,
+            // credentials: 'same-origin'
 
-        axios.get(req, { headers: { "Authorization": `bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vZGV2LmtlamFyLmlkL3VuL3Npc3dhL2xvZ2luIiwiaWF0IjoxNTQzNDY5MjcxLCJuYmYiOjE1NDM0NjkyNzEsImp0aSI6IjhrTGJOTjFHRTJqajE2c3kiLCJzdWIiOiI4ODg4ODgiLCJwcnYiOiIyYjBkZTQ3M2YwOGE4NTU3MjBlNGI0YjMxMDhmMTFmNWI2NjVjMGUwIn0.n9FM010N_dpFFFts_jYeGdVuYlDIfTysKj49Kpv50lI` } })
+        })
             .then(res => {
-                console.log(res);
+                var nom = JSON.stringify(res);
+                console.log(nom);
             })
             .catch((error) => {
-                console.log(error);
+                console.log("An error has occoured " + error);
+            });
+        let heady = new Headers();
+        heady.append('Accept', 'application/json');
+        heady.append('Authorization', `Bearer ${token}`);
+        let requ = new Request(req, {
+            method: 'GET',
+            headers: heady,
+            mode: 'cors'
+        });
+        fetch(requ)
+            .then((response) => {
+                if (response.ok) {
+                    console.log(response.json());
+                } else {
+                    throw new Error("Bad HTPP stuff");
+                }
             })
+            .then((jsonData) => {
+                console.log(jsonData);
+            })
+            .catch((err) => {
+                console.log("Error dectected: " + err.message);
+            });
         // fetch('https://seneu.kejar.id/un/fe/sudahlatihanto/1/888888', {
         //     method: 'GET',
-        //     headers: '{ "Authorization" : `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3NlbmV1LmtlamFyLmlkL3VuL3Npc3dhL2xvZ2luIiwiaWF0IjoxNTQzNDY1NjMyLCJuYmYiOjE1NDM0NjU2MzIsImp0aSI6ImxuSmhCMmRNbUdqRUhSTmciLCJzdWIiOiI4ODg4ODgiLCJwcnYiOiIyYjBkZTQ3M2YwOGE4NTU3MjBlNGI0YjMxMDhmMTFmNWI2NjVjMGUwIn0.9ApW_65tehwBvj5AdF-yb-xZwUp86LHabVzhDO0g5G8` }'
+        //     headers: { 'Authorization': `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vc2VuZXUua2VqYXIuaWQvdW4vc2lzd2EvbG9naW4iLCJpYXQiOjE1NDM1NDk1MjAsIm5iZiI6MTU0MzU0OTUyMCwianRpIjoicWVldXdXOFFab0JMTzJLdiIsInN1YiI6Ijg4ODg4OCIsInBydiI6IjJiMGRlNDczZjA4YTg1NTcyMGU0YjRiMzEwOGYxMWY1YjY2NWMwZTAifQ.dEPVfXswa8G_67v4cZD8u76flx1CNSpMSzLB5vKDK_k` }
         // })
         //     // .then(response => response.json())
         //     .then(response => {
