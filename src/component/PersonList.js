@@ -9,7 +9,7 @@ export default class PersonList extends React.Component {
 
     componentDidMount() {
         const req = 'http://dev.kejar.id/un/fe/sudahlatihanto/1/888888';
-        var token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vZGV2LmtlamFyLmlkL3VuL3Npc3dhL2xvZ2luIiwiaWF0IjoxNTQzNTY1MTc0LCJuYmYiOjE1NDM1NjUxNzQsImp0aSI6IjZ0YXBNNHg3WXZabTgxQmkiLCJzdWIiOiI4ODg4ODgiLCJwcnYiOiIyYjBkZTQ3M2YwOGE4NTU3MjBlNGI0YjMxMDhmMTFmNWI2NjVjMGUwIn0.0_CV3byQ4XV-CV_RnCBi5L3646B-MzYXieJFYRWlyzk"
+        var token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vZGV2LmtlamFyLmlkL3VuL3Npc3dhL2xvZ2luIiwiaWF0IjoxNTQzODIwMTg3LCJuYmYiOjE1NDM4MjAxODcsImp0aSI6ImpXUElGNHhOa3pKVVVaYnQiLCJzdWIiOiI4ODg4ODgiLCJwcnYiOiIyYjBkZTQ3M2YwOGE4NTU3MjBlNGI0YjMxMDhmMTFmNWI2NjVjMGUwIn0.voc6YZ2OZ_Z_eo_hrubJ5Ro99j3KzKiPS2Qx1xcKnAM"
         axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
         axios.get(req, {
             headers:
