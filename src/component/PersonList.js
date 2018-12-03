@@ -8,8 +8,8 @@ export default class PersonList extends React.Component {
     }
 
     componentDidMount() {
-        const req = 'https://seneu.kejar.id/un/fe/sudahlatihanto/1/888888';
-        var token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3NlbmV1LmtlamFyLmlkL3VuL3Npc3dhL2xvZ2luIiwiaWF0IjoxNTQzODIxMjQ0LCJuYmYiOjE1NDM4MjEyNDQsImp0aSI6IkFmaFRlYzFVdVBreUZnQ3IiLCJzdWIiOiI4ODg4ODgiLCJwcnYiOiIyYjBkZTQ3M2YwOGE4NTU3MjBlNGI0YjMxMDhmMTFmNWI2NjVjMGUwIn0.vNoDpzdVmshUYAkfm29T6Y22R3dY7mkwUNCXRpNcncg"
+        const req = 'https://dev.kejar.id/un/fe/sudahlatihanto/1/888888';
+        var token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vZGV2LmtlamFyLmlkL3VuL3Npc3dhL2xvZ2luIiwiaWF0IjoxNTQzODIyNDg2LCJuYmYiOjE1NDM4MjI0ODYsImp0aSI6ImlMam9XVTNsZlljc21maWEiLCJzdWIiOiI4ODg4ODgiLCJwcnYiOiIyYjBkZTQ3M2YwOGE4NTU3MjBlNGI0YjMxMDhmMTFmNWI2NjVjMGUwIn0._CCl2uyUAYQm64pY6M_eEWSQshiF2eeBqmFE__RXGDs"
         axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
         axios.get(req, {
             headers:
