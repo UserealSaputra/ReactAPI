@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Header from './Header';
+// import Axi from './Axi';
 
 export default class PersonList extends React.Component {
     state = {
@@ -8,18 +9,29 @@ export default class PersonList extends React.Component {
     }
 
     componentDidMount() {
-        const req = 'https://dev.kejar.id/un/fe/sudahlatihanto/1/888888';
-        var token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vZGV2LmtlamFyLmlkL3VuL3Npc3dhL2xvZ2luIiwiaWF0IjoxNTQ0MDg4MDA2LCJuYmYiOjE1NDQwODgwMDYsImp0aSI6IklnVGx0aUVKeHpVRzIzbkMiLCJzdWIiOiI4ODg4ODgiLCJwcnYiOiIyYjBkZTQ3M2YwOGE4NTU3MjBlNGI0YjMxMDhmMTFmNWI2NjVjMGUwIn0.dUT_kdK-URQ7qbPPLCwNzPU0oBkpt9tN5-E3JxNJkoQ"
+        const req = 'https://seneu.kejar.id/un/fe/siswa/data/view';
+        var xtep = new XMLHttpRequest();
+        // xtep.open('GET', req, true);
+        // xtep.send();
+        var token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3NlbmV1LmtlamFyLmlkL3VuL3Npc3dhL2xvZ2luIiwiaWF0IjoxNTQ0NDk4NTUzLCJuYmYiOjE1NDQ0OTg1NTMsImp0aSI6IlQyQ05Ycll2TWFrb3ZZTE4iLCJzdWIiOiI4ODg4ODgiLCJwcnYiOiIyYjBkZTQ3M2YwOGE4NTU3MjBlNGI0YjMxMDhmMTFmNWI2NjVjMGUwIn0.0onHpBiY9er71vm9ktXtcxFQcj9_sV1zoCKEEML2Csg";
         axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-        axios.get(req, {
+        axios.defaults.timeout = 30000;
+        axios.defaults.headers.common['Content-Type'] = 'application/json';
+        // axios.defaults.headers.common['X-Platform'] = Platform.OS;
+        // axios.defaults.headers.post['Content-Type'] = 'application/json';
+
+        axios(req, {
+            method: 'GET',
+            mode: 'no-cors',
             headers:
             {
                 'Authorization': `Bearer ${token}`,
-                'Accept': 'application/json',
-                // 'Access-Control-Allow-Origin': '*'
+                'Accept': `application/json`
             },
-            // withCredentials: true,
-            // credentials: 'same-origin'
+            withCredentials: false,
+            crossdomain: true,
+            credentials: 'same-origin',
+            crossdomain: true,
 
         })
             .then(res => {
@@ -29,46 +41,7 @@ export default class PersonList extends React.Component {
             .catch((error) => {
                 console.log("An error has occoured " + error);
             });
-        let heady = new Headers();
-        heady.append('Accept', 'application/json');
-        heady.append('Authorization', `Bearer ${token}`);
-        let requ = new Request(req, {
-            method: 'GET',
-            headers: heady,
-            mode: 'cors'
-        });
-        fetch(requ)
-            .then((response) => {
-                if (response.ok) {
-                    console.log(response.json());
-                } else {
-                    throw new Error("Bad HTPP stuff");
-                }
-            })
-            .then((jsonData) => {
-                console.log(jsonData);
-            })
-            .catch((err) => {
-                console.log("Error dectected: " + err.message);
-            });
-        // fetch('https://seneu.kejar.id/un/fe/sudahlatihanto/1/888888', {
-        //     method: 'GET',
-        //     headers: { 'Authorization': `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vc2VuZXUua2VqYXIuaWQvdW4vc2lzd2EvbG9naW4iLCJpYXQiOjE1NDM1NDk1MjAsIm5iZiI6MTU0MzU0OTUyMCwianRpIjoicWVldXdXOFFab0JMTzJLdiIsInN1YiI6Ijg4ODg4OCIsInBydiI6IjJiMGRlNDczZjA4YTg1NTcyMGU0YjRiMzEwOGYxMWY1YjY2NWMwZTAifQ.dEPVfXswa8G_67v4cZD8u76flx1CNSpMSzLB5vKDK_k` }
-        // })
-        //     // .then(response => response.json())
-        //     .then(response => {
-        //         if (response !== null) {
 
-        //             if (response.status === 200) {
-        //                 console.log(response);
-        //             } else {
-        //                 console.log("error");
-        //             }
-        //         }
-        //     })
-        //     .catch((error) => {
-        //         console.error(error);
-        //     });
     }
 
     render() {
