@@ -9,11 +9,11 @@ export default class PersonList extends React.Component {
     }
 
     componentDidMount() {
-        const req = 'https://seneu.kejar.id/un/fe/siswa/data/view';
+        const req = 'http://dev.kejar.id/un/fe/siswa/data/view';
         var xtep = new XMLHttpRequest();
         // xtep.open('GET', req, true);
         // xtep.send();
-        var token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3NlbmV1LmtlamFyLmlkL3VuL3Npc3dhL2xvZ2luIiwiaWF0IjoxNTQ0NDk4NTUzLCJuYmYiOjE1NDQ0OTg1NTMsImp0aSI6IlQyQ05Ycll2TWFrb3ZZTE4iLCJzdWIiOiI4ODg4ODgiLCJwcnYiOiIyYjBkZTQ3M2YwOGE4NTU3MjBlNGI0YjMxMDhmMTFmNWI2NjVjMGUwIn0.0onHpBiY9er71vm9ktXtcxFQcj9_sV1zoCKEEML2Csg";
+        var token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vZGV2LmtlamFyLmlkL3VuL3Npc3dhL2xvZ2luIiwiaWF0IjoxNTQ0NTAyNjA3LCJuYmYiOjE1NDQ1MDI2MDcsImp0aSI6ImZJSU9oZjA0VndSNEZZS2kiLCJzdWIiOiI4ODg4ODgiLCJwcnYiOiIyYjBkZTQ3M2YwOGE4NTU3MjBlNGI0YjMxMDhmMTFmNWI2NjVjMGUwIn0.Duw_DRr4Malg7cI70b_azHhEBAsr38Qv4OW_HJesP44";
         axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
         axios.defaults.timeout = 30000;
         axios.defaults.headers.common['Content-Type'] = 'application/json';
