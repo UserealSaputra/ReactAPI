@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import Header from './Header';
+// import Header from './Header';
 // import Axi from './Axi';
 
-export default class PersonList extends React.Component {
+export default class PersonList extends Component {
     state = {
         persons: []
     }
 
     componentDidMount() {
         const req = 'http://dev.kejar.id/un/fe/siswa/data/view';
-        var xtep = new XMLHttpRequest();
+        // var xtep = new XMLHttpRequest();
         // xtep.open('GET', req, true);
         // xtep.send();
         var token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vZGV2LmtlamFyLmlkL3VuL3Npc3dhL2xvZ2luIiwiaWF0IjoxNTQ0NTAyNjA3LCJuYmYiOjE1NDQ1MDI2MDcsImp0aSI6ImZJSU9oZjA0VndSNEZZS2kiLCJzdWIiOiI4ODg4ODgiLCJwcnYiOiIyYjBkZTQ3M2YwOGE4NTU3MjBlNGI0YjMxMDhmMTFmNWI2NjVjMGUwIn0.Duw_DRr4Malg7cI70b_azHhEBAsr38Qv4OW_HJesP44";
@@ -29,7 +29,7 @@ export default class PersonList extends React.Component {
                 'Accept': `application/json`
             },
             withCredentials: false,
-            crossdomain: true,
+            // crossdomain: true,
             credentials: 'same-origin',
             crossdomain: true,
 
