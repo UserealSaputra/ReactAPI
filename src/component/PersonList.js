@@ -20,20 +20,7 @@ export default class PersonList extends Component {
         // axios.defaults.headers.common['X-Platform'] = Platform.OS;
         // axios.defaults.headers.post['Content-Type'] = 'application/json';
 
-        axios(req, {
-            method: 'GET',
-            mode: 'no-cors',
-            headers:
-            {
-                'Authorization': `Bearer ${token}`,
-                'Accept': `application/json`
-            },
-            withCredentials: false,
-            // crossdomain: true,
-            credentials: 'same-origin',
-            crossdomain: true,
-
-        })
+        axios.get(req)
             .then(res => {
                 var nom = JSON.stringify(res);
                 console.log(nom);
