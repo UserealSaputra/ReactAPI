@@ -17,6 +17,8 @@ export default class PersonList extends Component {
         axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
         axios.defaults.timeout = 30000;
         axios.defaults.headers.common['Content-Type'] = 'application/json';
+        axios.defaults.headers.common['Access-Control-Allow-Origin'] = 'http://localhost:8800';
+        axios.defaults.headers.common['Access-Control-Allow-Credentials'] = 'true';
         // axios.defaults.headers.common['X-Platform'] = Platform.OS;
         // axios.defaults.headers.post['Content-Type'] = 'application/json';
 
