@@ -25,7 +25,7 @@ export default class PersonList extends Component {
         axios.get(req)
             .then(res => {
                 var nom = JSON.stringify(res);
-                console.log(nom);
+                console.log(res);
             })
             .catch((error) => {
                 console.log("An error has occoured " + error);
