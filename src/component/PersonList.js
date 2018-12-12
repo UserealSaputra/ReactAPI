@@ -9,11 +9,11 @@ export default class PersonList extends Component {
     }
 
     componentDidMount() {
-        const req = 'https://dev.kejar.id/un/fe/siswa/data/view';
+        const req = 'https://seneu.kejar.id/un/fe/siswa/data/view';
         // var xtep = new XMLHttpRequest();
         // xtep.open('GET', req, true);
         // xtep.send();
-        var token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vZGV2LmtlamFyLmlkL3VuL3Npc3dhL2xvZ2luIiwiaWF0IjoxNTQ0NTgzMzEyLCJuYmYiOjE1NDQ1ODMzMTIsImp0aSI6IlhnTHhnMjZDb1l0dWQ2enYiLCJzdWIiOiI4ODg4ODgiLCJwcnYiOiIyYjBkZTQ3M2YwOGE4NTU3MjBlNGI0YjMxMDhmMTFmNWI2NjVjMGUwIn0.aECrsJrk25QmiBrUlZHiDeZWh8N6ba3j_pNwWnqrqwM";
+        var token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3NlbmV1LmtlamFyLmlkL3VuL3Npc3dhL2xvZ2luIiwiaWF0IjoxNTQ0NTg0NDE0LCJuYmYiOjE1NDQ1ODQ0MTQsImp0aSI6InJoUDVHZ1VKT0FXZGtJR0UiLCJzdWIiOiI4ODg4ODgiLCJwcnYiOiIyYjBkZTQ3M2YwOGE4NTU3MjBlNGI0YjMxMDhmMTFmNWI2NjVjMGUwIn0.nmmCfLW1rKYgsqjctDf-FFFoVSXVYvn-Awyu4Ozqmlg";
         axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
         axios.defaults.timeout = 30000;
         axios.defaults.headers.common['Content-Type'] = 'application/json';
