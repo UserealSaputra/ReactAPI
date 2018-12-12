@@ -9,7 +9,7 @@ export default class PersonList extends Component {
     }
 
     componentDidMount() {
-        const req = 'https://seneu.kejar.id/un/fe/siswa/data/view';
+        const req = "https://jsonplaceholder.typicode.com/users";
         // var xtep = new XMLHttpRequest();
         // xtep.open('GET', req, true);
         // xtep.send();
