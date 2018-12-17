@@ -15,7 +15,7 @@ class Content extends Component {
                     <div className="chatbar" key={activity.user.id}>
                         <div className="item">
                             <div className="avatar">
-                                <img src="{activity.user.avatar}" />
+
                             </div>
                             {activity.user.name}
                         </div>
