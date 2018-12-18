@@ -10,42 +10,37 @@ export default class PersonList extends Component {
     }
 
     componentDidMount() {
+        // const ex_link = "https://cors-anywhere.herokuapp.com/";
         const req = "https://seneu.kejar.id/un/fe/sudahlatihanto/1/888888";
         // var xtep = new XMLHttpRequest();
         // xtep.open('GET', req, true);
         // xtep.send();
-        var token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3NlbmV1LmtlamFyLmlkL3VuL3Npc3dhL2xvZ2luIiwiaWF0IjoxNTQ0Njg1MDkzLCJuYmYiOjE1NDQ2ODUwOTMsImp0aSI6IkJHcnZKNFpHa0dCVlNFZTkiLCJzdWIiOiIeyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3NlbmV1LmtlamFyLmlkL3VuL3Npc3dhL2xvZ2luIiwiaWF0IjoxNTQ0Njg3MDU1LCJuYmYiOjE1NDQ2ODcwNTUsImp0aSI6IlVLY3hhMXRTajJXQ2tOUnciLCJzdWIiOiI4ODg4ODgiLCJwcnYiOiIyYjBkZTQ3M2YwOGE4NTU3MjBlNGI0YjMxMDhmMTFmNWI2NjVjMGUwIn0.FEU5dpJIolTmSPx01JIlgntzClYtFMhrfHd7t833Y6Y4ODg4ODgiLCJwcnYiOiIyYjBkZTQ3M2YwOGE4NTU3MjBlNGI0YjMxMDhmMTFmNWI2NjVjMGUwIn0.yxEs6IvGAiKvPr0GQzZ2KpZZf_mxwzk133sKIu6Xjc4";
+        var token = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3NlbmV1LmtlamFyLmlkL3VuL3Npc3dhL2xvZ2luIiwiaWF0IjoxNTQ1MTAzMzYxLCJuYmYiOjE1NDUxMDMzNjEsImp0aSI6IkozZm91clhkWnRTWnFVbnkiLCJzdWIiOiI4ODg4ODgiLCJwcnYiOiIyYjBkZTQ3M2YwOGE4NTU3MjBlNGI0YjMxMDhmMTFmNWI2NjVjMGUwIn0.ZcWj9WCNa0gD_dVBEE69Zc11tvkdSchuBwvqLRhZAts";
         axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
         axios.defaults.timeout = 30000;
         axios.defaults.headers.common['Content-Type'] = 'application/json';
-        axios.defaults.headers.common['Access-Control-Allow-Origin'] = 'http://localhost:8800';
-        axios.defaults.headers.common['Access-Control-Allow-Credentials'] = 'true';
+        axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
+        axios.defaults.headers.common['Access-Control-Allow-Credentials'] = 'false';
         // axios.defaults.headers.common['X-Platform'] = Platform.OS;
         // axios.defaults.headers.post['Content-Type'] = 'application/json';
 
         axios.get(req)
             .then(res => {
-                var nom = JSON.stringify(res);
-                console.log(nom);
+                var nom = res;
+                console.log(nom.data);
             })
             .catch((error) => {
                 console.log("An error has occoured " + error);
             });
         const url = `https://seneu.kejar.id/un/fe/sudahlatihanto/1/888888`;
         let myhead = new Headers();
-        // myhead.append('Authorization', 'Bearer {{$tok}}');
-        // myhead.append('Accept', 'application/json');
-        // myhead.append('Content-Type', 'application/json');
-        // myhead.append('Access-Control-Request-Method', '*');
-        // myhead.append('Access-Control-Request-Headers', 'origin, x-requested-with');
-        // myhead.append('Origin', url);
+        myhead.append('Authorization', 'Bearer {{$tok}}');
+        myhead.append('Accept', 'application/json');
+        myhead.append('Content-Type', 'application/json');
+        myhead.append('Access-Control-Request-Method', '*');
+        myhead.append('Access-Control-Request-Headers', 'origin, x-requested-with');
+        myhead.append('Origin', url);
         console.log(myhead);
-        // let exap = new XMLHttpRequest();
-        // exap.setRequestHeader('Authorization', 'Bearer {{$tok}}');
-        // exap.open('GET', url, true);
-        // exap.send();
-        // var resul = exap.getAllResponseHeaders();
-        // console.log(resul);
         var num = new Request(url, {
             mode: 'no-cors',
             method: 'GET',
@@ -67,9 +62,10 @@ export default class PersonList extends Component {
             method: 'GET',
             credentials: 'include',
             headers: {
-                "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3NlbmV1LmtlamFyLmlkL3VuL3Npc3dhL2xvZ2luIiwiaWF0IjoxNTQ1MDEwMjEzLCJuYmYiOjE1NDUwMTAyMTMsImp0aSI6ImdTTVlkV2MzNjM3TU9JajciLCJzdWIiOiI4ODg4ODgiLCJwcnYiOiIyYjBkZTQ3M2YwOGE4NTU3MjBlNGI0YjMxMDhmMTFmNWI2NjVjMGUwIn0.DyZOR9SNhu8Efgd39_gKJYkahDOz-d-MacfPcb1keek",
-                "Accept": "application/json",
-                "Content-Type": "application/json"
+                Authorization: "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3NlbmV1LmtlamFyLmlkL3VuL3Npc3dhL2xvZ2luIiwiaWF0IjoxNTQ1MTA1Njc1LCJuYmYiOjE1NDUxMDU2NzUsImp0aSI6IktKNWJNUzFJYTUwbG9zY1MiLCJzdWIiOiI4ODg4ODgiLCJwcnYiOiIyYjBkZTQ3M2YwOGE4NTU3MjBlNGI0YjMxMDhmMTFmNWI2NjVjMGUwIn0.o4NXKVBtE_Crt--XhRy-1lSyVOg7aoo1EUPHC1rxvO4",
+                Accept: "application/json",
+                // Content-Type: "application/json",
+                Origin: "https://seneu.kejar.id/un/fe/sudahlatihanto/1/888888"
             }
             // myhead
         })
